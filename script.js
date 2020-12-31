@@ -12,7 +12,7 @@ const words = ['sofa', 'isla', 'sillas', 'platos', 'cubiertos', 'armario', 'nutr
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
-const correctLetters = ['s', 'o', 'a', 'f'];
+const correctLetters = [];
 const wrongLetters = [];
 
 function displayWord() {
@@ -33,5 +33,46 @@ function displayWord() {
     popup.style.display = 'flex';
   }
 }
+
+// update the wrong letters
+function updateWrongLettersElement() {
+  console.log('Update wrong');
+}
+
+// show notification
+function showNotification() {
+  notification.classList.add('show');
+
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2000)
+}
+
+
+// keydown letter press on the window object
+window.addEventListener('keydown', e => {
+  // console.log(e.keyCode);
+  if(e.keyCode >= 65 && e.keyCode <= 90) {
+    const letter = e.key;
+
+    if(selectedWord.includes(letter)){
+      if(!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if(!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+
+        updateWrongLettersElement();
+      } else {
+        showNotification();
+      }
+    }
+  }
+});
 
 displayWord();
