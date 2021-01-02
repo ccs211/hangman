@@ -8,7 +8,7 @@ const finalMessageRevealWord = document.getElementById('final-message-reveal-wor
 
 const figureParts = document.querySelectorAll('.figure-part');
 
-const words = ['hallacas', 'pan de jamon', 'ensalda', 'pernil', 'champan', 'cerveza', 'ponche crema'];
+const words = ['hallacas', 'pandejamon', 'ensalda', 'pernil', 'champan', 'cerveza', 'ponchecrema'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
